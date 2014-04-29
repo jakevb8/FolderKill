@@ -58,20 +58,11 @@ namespace FolderKill
         private void DeleteFiles(DirectoryInfo root, DirectoryInfo currentDirectory)
         {
             FileInfo[] files = currentDirectory.GetFiles();
-            if (files.Length > 0)
-            {
-                //Application.DoEvents();
-            }
             foreach (FileInfo fileToMove in files)
             {
                 try
                 {
                     fileToMove.Delete();
-                    //string reallyLongPath = @"\\?\" + currentDirectory.FullName + "\\" + fileToMove.Name;
-                    //string destination = root.FullName + "\\" + fileToMove.Name;
-                    //CopyFile(reallyLongPath, destination, false);
-                    //FileInfo fileToDelete = new FileInfo(root.FullName + "\\" + fileToMove.Name);
-                    //fileToDelete.Delete();
                 }
                 catch (Exception ex)
                 {
@@ -84,8 +75,5 @@ namespace FolderKill
                 DeleteFiles(root, directoryInfo);
             }
         }
-
-        //[DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-        //static extern bool CopyFile(string lpExistingFileName, string lpNewFileName, bool bFailIfExists);
     }
 }
